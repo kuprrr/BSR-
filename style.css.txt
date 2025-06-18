@@ -1,0 +1,28 @@
+const carForm = document.getElementById("car-form");
+const carList = document.getElementById("car-list");
+
+carForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const brand = document.getElementById("brand").value;
+    const model = document.getElementById("model").value;
+    const year = document.getElementById("year").value;
+    const mileage = document.getElementById("mileage").value;
+    const price = document.getElementById("price").value;
+    const contact = document.getElementById("contact").value;
+    const description = document.getElementById("description").value;
+
+    const carItem = document.createElement("div");
+    carItem.classList.add("car-item");
+    carItem.innerHTML = `
+        <h3>${brand} ${model} (${year})</h3>
+        <p>Пробег: ${mileage} км</p>
+        <p>Цена: €${price}</p>
+        <p>Контакт: ${contact}</p>
+        <p>${description}</p>
+    `;
+    carList.appendChild(carItem);
+
+    // Очищаем форму после добавления
+    carForm.reset();
+});
